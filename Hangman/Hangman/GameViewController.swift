@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension UILabel{
+    func addTextSpacing(spacing: CGFloat){
+        let attributedString = NSMutableAttributedString(string: self.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: spacing, range: NSRange(location: 0, length: self.text!.characters.count))
+        self.attributedText = attributedString
+    }
+}
+
 class GameViewController: UIViewController {
     var phrase: String = ""
     
@@ -94,22 +102,36 @@ class GameViewController: UIViewController {
         checkLetter(button: sender, index: 24, letter: "N")
     }
     @IBOutlet weak var guessLabel: UILabel!
+    @IBOutlet weak var hangmanImage: UIImageView!
     
     var guessLabelText = [String]()
+    
+    let wrongColor = UIColor(red: 206/255, green: 90/255, blue: 55/255, alpha: 1)
+    let rightColor = UIColor(red: 88/255, green: 163/255, blue: 109/255, alpha: 1)
+    
     
     func checkLetter(button: UIButton, index: Int, letter: String) {
         if !triedLetters[index] {
             print(letter)
             var i = 0
+            var correctGuess = false
             for char in phrase.characters {
                 if String(char) == letter {
                     guessLabelText[i] = letter
+                    correctGuess = true
                 }
                 i += 1
             }
-            guessLabel.text! = guessLabelText.joined(separator: " ")
+            let attributedString = NSMutableAttributedString(string: guessLabelText.joined(separator: ""))
+            attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: NSRange(location: 0, length: guessLabelText.count))
+            guessLabel.attributedText! = attributedString
             triedLetters[index] = true
-            button.backgroundColor = UIColor.lightGray
+            if correctGuess {
+                button.backgroundColor = rightColor
+            } else {
+                button.backgroundColor = wrongColor
+            }
+            
         }
     }
 
@@ -127,8 +149,10 @@ class GameViewController: UIViewController {
                 guessLabelText.append(" ")
             }
         }
-        guessLabel.text! = guessLabelText.joined(separator: " ")
-        print("this is the frase")
+        let attributedString = NSMutableAttributedString(string: guessLabelText.joined(separator: ""))
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: NSRange(location: 0, length: guessLabelText.count))
+        guessLabel.attributedText! = attributedString
+        print("this is the phrase")
         print(phrase)
     }
 
