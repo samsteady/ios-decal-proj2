@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224734A41DCEDEA400EF5241 /* Keyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224734A31DCEDEA400EF5241 /* Keyboard */; };
 		EC93104C1C891F2C00BE736C /* hangman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310451C891F2C00BE736C /* hangman1.gif */; };
 		EC93104D1C891F2C00BE736C /* hangman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310461C891F2C00BE736C /* hangman2.gif */; };
 		EC93104E1C891F2C00BE736C /* hangman3.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310471C891F2C00BE736C /* hangman3.gif */; };
@@ -43,7 +44,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		224734A21DCED0E900EF5241 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		224734A31DCEDEA400EF5241 /* Keyboard */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Keyboard; sourceTree = "<group>"; };
 		EC9310451C891F2C00BE736C /* hangman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman1.gif; path = "basic-hangman-img/hangman1.gif"; sourceTree = "<group>"; };
 		EC9310461C891F2C00BE736C /* hangman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman2.gif; path = "basic-hangman-img/hangman2.gif"; sourceTree = "<group>"; };
 		EC9310471C891F2C00BE736C /* hangman3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman3.gif; path = "basic-hangman-img/hangman3.gif"; sourceTree = "<group>"; };
@@ -115,6 +130,7 @@
 				ECC22F561C89177600749E58 /* HangmanTests */,
 				ECC22F611C89177600749E58 /* HangmanUITests */,
 				ECC22F401C89177600749E58 /* Products */,
+				224734A31DCEDEA400EF5241 /* Keyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +213,7 @@
 				ECC22F3B1C89177600749E58 /* Sources */,
 				ECC22F3C1C89177600749E58 /* Frameworks */,
 				ECC22F3D1C89177600749E58 /* Resources */,
+				224734A21DCED0E900EF5241 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -249,7 +266,7 @@
 		ECC22F371C89177600749E58 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Sam Steady";
 				TargetAttributes = {
@@ -304,6 +321,7 @@
 				EC9310521C891F2C00BE736C /* hangman7.gif in Resources */,
 				ECC22F481C89177600749E58 /* Main.storyboard in Resources */,
 				EC93104F1C891F2C00BE736C /* hangman4.gif in Resources */,
+				224734A41DCEDEA400EF5241 /* Keyboard in Resources */,
 				EC93104C1C891F2C00BE736C /* hangman1.gif in Resources */,
 				EC9310501C891F2C00BE736C /* hangman5.gif in Resources */,
 			);
