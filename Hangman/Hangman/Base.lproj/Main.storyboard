@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="newGame" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Op0-tU-0Wr">
@@ -72,7 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sC7-Tj-R6S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TuC-tO-Z1B">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="q" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLH-XI-5jW">
@@ -530,7 +530,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="noose-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="cqR-iF-17o"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" restorationIdentifier="graphicsImageView" image="noose-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="cqR-iF-17o"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -653,12 +653,154 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="A" destination="yMz-WA-WsZ" id="6Xa-n8-nOp"/>
+                        <outlet property="B" destination="Bl9-UY-Gza" id="zuH-KF-yaD"/>
+                        <outlet property="C" destination="hoM-bc-JvK" id="zEM-cs-YtR"/>
+                        <outlet property="D" destination="liP-on-5PA" id="ezH-y6-HEq"/>
+                        <outlet property="E" destination="KnV-0i-oTe" id="Ebg-Yk-aGJ"/>
+                        <outlet property="F" destination="iMM-QX-SHj" id="nk1-r2-hAo"/>
+                        <outlet property="G" destination="Bj1-H2-j0L" id="Jnn-kD-m6e"/>
+                        <outlet property="H" destination="FUm-ym-NSE" id="rdt-xn-sgd"/>
+                        <outlet property="I" destination="HAQ-QG-T6v" id="ThT-Ib-9Pg"/>
+                        <outlet property="J" destination="18p-1U-MPP" id="SWs-cM-ze3"/>
+                        <outlet property="K" destination="ExP-Vc-z9x" id="A5W-gL-xhc"/>
+                        <outlet property="L" destination="ZRQ-NC-9Dx" id="rJL-iv-eGX"/>
+                        <outlet property="M" destination="XYg-TA-OYh" id="EcD-Xz-Nqc"/>
+                        <outlet property="N" destination="RZ2-Qm-jnj" id="x5u-BJ-Ej0"/>
+                        <outlet property="O" destination="z0x-HS-MgP" id="eCn-6w-67Q"/>
+                        <outlet property="P" destination="fhR-49-6jx" id="XlT-HQ-cpD"/>
+                        <outlet property="Q" destination="vLH-XI-5jW" id="3FF-dO-y1n"/>
+                        <outlet property="R" destination="wgk-la-Ttb" id="1Dn-rr-1lW"/>
+                        <outlet property="S" destination="eHo-I2-wYr" id="vbm-Vh-Yyb"/>
+                        <outlet property="T" destination="cRs-VY-e7V" id="vkQ-qF-Voh"/>
+                        <outlet property="U" destination="JCF-j6-spR" id="YFy-tt-C31"/>
+                        <outlet property="V" destination="dbY-dm-yfz" id="Me3-u8-q0x"/>
+                        <outlet property="W" destination="ZAv-Li-yRK" id="xXJ-8Q-OjH"/>
+                        <outlet property="X" destination="ZcQ-ed-9L7" id="4kA-RJ-3kj"/>
+                        <outlet property="Y" destination="L1c-d0-dDa" id="Isi-E8-xET"/>
+                        <outlet property="Z" destination="Fro-XY-XK3" id="FL5-dF-Efi"/>
+                        <outlet property="graphicsImageView" destination="cqR-iF-17o" id="FgJ-pd-eCV"/>
                         <outlet property="guessLabel" destination="XCp-GL-z2F" id="naK-i8-r9p"/>
+                        <segue destination="yAW-T7-V9R" kind="presentation" identifier="lostSegue" id="nAX-Mt-fe2"/>
+                        <segue destination="Rie-Sl-bv2" kind="presentation" identifier="wonSegue" id="Lzx-qw-AxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcA-CA-6Ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="263.11844077961024" y="140"/>
+        </scene>
+        <!--Game Won View Controller-->
+        <scene sceneID="hmT-gU-UEq">
+            <objects>
+                <viewController id="Rie-Sl-bv2" customClass="GameWonViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lrx-mr-XQA"/>
+                        <viewControllerLayoutGuide type="bottom" id="9MK-Tp-EIt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qOw-rO-3u3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-xh-8t0">
+                                <color key="backgroundColor" red="0.088254056870937347" green="0.74196869134902954" blue="0.50354886054992676" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Won" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddd-ip-ZR8">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="newGame" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYz-0R-wl7">
+                                <color key="backgroundColor" red="0.80276988299999996" green="0.96188997190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="VgJ-xg-rvb"/>
+                                    <constraint firstAttribute="width" constant="150" id="b65-8g-iXf"/>
+                                </constraints>
+                                <state key="normal" title="Play Again"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="playAgain:" destination="Rie-Sl-bv2" eventType="touchUpInside" id="tpL-u7-q8P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NYz-0R-wl7" firstAttribute="centerX" secondItem="qOw-rO-3u3" secondAttribute="centerX" constant="1" id="9S9-zL-6DA"/>
+                            <constraint firstItem="Ddd-ip-ZR8" firstAttribute="centerX" secondItem="qOw-rO-3u3" secondAttribute="centerX" constant="1" id="EBq-Fi-MUg"/>
+                            <constraint firstItem="9MK-Tp-EIt" firstAttribute="top" secondItem="1Y8-xh-8t0" secondAttribute="bottom" id="Le4-jT-r17"/>
+                            <constraint firstItem="Ddd-ip-ZR8" firstAttribute="centerY" secondItem="qOw-rO-3u3" secondAttribute="centerY" multiplier="10:20" constant="1" id="MNG-Er-Gs0"/>
+                            <constraint firstItem="NYz-0R-wl7" firstAttribute="centerY" secondItem="qOw-rO-3u3" secondAttribute="centerY" constant="1" id="gGR-hR-ACI"/>
+                            <constraint firstItem="1Y8-xh-8t0" firstAttribute="leading" secondItem="qOw-rO-3u3" secondAttribute="leading" id="hg8-OE-bbl"/>
+                            <constraint firstAttribute="trailing" secondItem="1Y8-xh-8t0" secondAttribute="trailing" id="ihO-PG-427"/>
+                            <constraint firstItem="1Y8-xh-8t0" firstAttribute="top" secondItem="qOw-rO-3u3" secondAttribute="top" id="nuA-A6-pgr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie6-I0-a2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1301.5999999999999" y="-159.67016491754123"/>
+        </scene>
+        <!--Game Lost View Controller-->
+        <scene sceneID="mBw-U4-bbJ">
+            <objects>
+                <viewController id="yAW-T7-V9R" customClass="GameLostViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U0w-Kz-rfa"/>
+                        <viewControllerLayoutGuide type="bottom" id="iLg-mB-c6L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Av1-Jb-nF3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLM-yr-He1">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.40507582109894535" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Lost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGA-e8-Uia">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-xq-2RW">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="newGame" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0z-Hk-vWa">
+                                        <color key="backgroundColor" red="0.80276988299999996" green="0.96188997190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Wsb-a1-aZn"/>
+                                            <constraint firstAttribute="height" constant="60" id="tYE-dD-Dn7"/>
+                                        </constraints>
+                                        <state key="normal" title="Play Again"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="playAgain:" destination="yAW-T7-V9R" eventType="touchUpInside" id="Cuq-SY-Tux"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PLM-yr-He1" firstAttribute="leading" secondItem="Av1-Jb-nF3" secondAttribute="leading" id="5MM-cF-d3L"/>
+                            <constraint firstItem="iLg-mB-c6L" firstAttribute="top" secondItem="PLM-yr-He1" secondAttribute="bottom" id="9Uv-4q-95C"/>
+                            <constraint firstItem="XGA-e8-Uia" firstAttribute="centerX" secondItem="Av1-Jb-nF3" secondAttribute="centerX" constant="1" id="LaO-Zw-Lwv"/>
+                            <constraint firstItem="wXM-xq-2RW" firstAttribute="centerY" secondItem="Av1-Jb-nF3" secondAttribute="centerY" constant="1" id="Mrb-yJ-lDE"/>
+                            <constraint firstItem="wXM-xq-2RW" firstAttribute="centerX" secondItem="Av1-Jb-nF3" secondAttribute="centerX" constant="1" id="UDn-AZ-GwS"/>
+                            <constraint firstItem="XGA-e8-Uia" firstAttribute="centerY" secondItem="Av1-Jb-nF3" secondAttribute="centerY" multiplier="10:20" constant="1" id="g96-GU-ZWG"/>
+                            <constraint firstItem="PLM-yr-He1" firstAttribute="top" secondItem="Av1-Jb-nF3" secondAttribute="top" id="jiK-Vp-TIN"/>
+                            <constraint firstAttribute="trailing" secondItem="PLM-yr-He1" secondAttribute="trailing" id="uTo-kf-ain"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUU-T6-7qB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303.2" y="517.6911544227886"/>
         </scene>
     </scenes>
     <resources>

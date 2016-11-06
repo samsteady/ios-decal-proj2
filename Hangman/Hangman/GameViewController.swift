@@ -8,19 +8,40 @@
 
 import UIKit
 
-extension UILabel{
-    func addTextSpacing(spacing: CGFloat){
-        let attributedString = NSMutableAttributedString(string: self.text!)
-        attributedString.addAttribute(NSKernAttributeName, value: spacing, range: NSRange(location: 0, length: self.text!.characters.count))
-        self.attributedText = attributedString
-    }
-}
-
 class GameViewController: UIViewController {
     var phrase: String = ""
     
-    var triedLetters = [false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+    var triedLetters = [Bool]()
+    
+    
+    @IBOutlet weak var Q: UIButton!
+    @IBOutlet weak var W: UIButton!
+    @IBOutlet weak var E: UIButton!
+    @IBOutlet weak var R: UIButton!
+    @IBOutlet weak var T: UIButton!
+    @IBOutlet weak var U: UIButton!
+    @IBOutlet weak var Y: UIButton!
+    @IBOutlet weak var O: UIButton!
+    @IBOutlet weak var I: UIButton!
+    @IBOutlet weak var P: UIButton!
+    @IBOutlet weak var A: UIButton!
+    @IBOutlet weak var L: UIButton!
+    @IBOutlet weak var S: UIButton!
+    @IBOutlet weak var D: UIButton!
+    @IBOutlet weak var F: UIButton!
+    @IBOutlet weak var G: UIButton!
+    @IBOutlet weak var H: UIButton!
+    @IBOutlet weak var J: UIButton!
+    @IBOutlet weak var K: UIButton!
+    @IBOutlet weak var Z: UIButton!
+    @IBOutlet weak var M: UIButton!
+    @IBOutlet weak var X: UIButton!
+    @IBOutlet weak var C: UIButton!
+    @IBOutlet weak var V: UIButton!
+    @IBOutlet weak var B: UIButton!
+    @IBOutlet weak var N: UIButton!
+    
+    var buttons = [UIButton]()
     
     
     @IBAction func pressedQ(_ sender: UIButton) {
@@ -102,13 +123,14 @@ class GameViewController: UIViewController {
         checkLetter(button: sender, index: 24, letter: "N")
     }
     @IBOutlet weak var guessLabel: UILabel!
-    @IBOutlet weak var hangmanImage: UIImageView!
     
     var guessLabelText = [String]()
     
     let wrongColor = UIColor(red: 206/255, green: 90/255, blue: 55/255, alpha: 1)
     let rightColor = UIColor(red: 88/255, green: 163/255, blue: 109/255, alpha: 1)
     
+    var numWrongGuesses = 0
+    @IBOutlet weak var graphicsImageView: UIImageView!
     
     func checkLetter(button: UIButton, index: Int, letter: String) {
         if !triedLetters[index] {
@@ -126,17 +148,71 @@ class GameViewController: UIViewController {
             attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: NSRange(location: 0, length: guessLabelText.count))
             guessLabel.attributedText! = attributedString
             triedLetters[index] = true
+            
             if correctGuess {
                 button.backgroundColor = rightColor
+                if gameIsWon() {
+                    self.performSegue(withIdentifier: "wonSegue", sender: nil)
+                }
             } else {
                 button.backgroundColor = wrongColor
+                numWrongGuesses += 1
+                switch numWrongGuesses {
+                case 1:
+                    graphicsImageView.image = UIImage(named: "head-01.png")
+                    break
+                case 2:
+                    graphicsImageView.image = UIImage(named: "body-01.png")
+                    break
+                case 3:
+                    graphicsImageView.image = UIImage(named: "leftArm-01.png")
+                    break
+                case 4:
+                    graphicsImageView.image = UIImage(named: "rightArm-01.png")
+                    break
+                case 5:
+                    graphicsImageView.image = UIImage(named: "leftLeg-01.png")
+                    break
+                case 6:
+                    graphicsImageView.image = UIImage(named: "rightLeg-01.png")
+                    self.performSegue(withIdentifier: "lostSegue", sender: nil)
+                    break
+                default: break
+                    
+                }
             }
             
         }
     }
 
+    func gameIsWon() -> Bool {
+        var isWon = true
+        for str in guessLabelText {
+            if str == "_" {
+                isWon = false
+                break
+            }
+        }
+        return isWon
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        numWrongGuesses = 0
+        
+        buttons = [Q, W, E, R, T, Y, U, I, O, P,
+                A, S, D, F, G, H, J, K, L,
+                Z, X, C, V, B, N, M]
+        
+        triedLetters = [false,false,false,false,false,false,false,false,false,false,false,
+                        false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+        graphicsImageView.image = UIImage(named: "noose-01.png")
+        
+        for i in 0...25 {
+            buttons[i].backgroundColor = UIColor.darkGray
+        }
 
         // Do any additional setup after loading the view.
         let hangmanPhrases = HangmanPhrases()
@@ -154,6 +230,13 @@ class GameViewController: UIViewController {
         guessLabel.attributedText! = attributedString
         print("this is the phrase")
         print(phrase)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {

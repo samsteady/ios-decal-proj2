@@ -14,6 +14,8 @@
 		22B903BF1DCFB6C7007B7754 /* noose-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903B81DCFB6C7007B7754 /* noose-01.png */; };
 		22B903C01DCFB6C7007B7754 /* rightArm-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903B91DCFB6C7007B7754 /* rightArm-01.png */; };
 		22B903C11DCFB6C7007B7754 /* rightLeg-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903BA1DCFB6C7007B7754 /* rightLeg-01.png */; };
+		22B903C31DCFCF08007B7754 /* GameLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B903C21DCFCF08007B7754 /* GameLostViewController.swift */; };
+		22B903C51DCFCF1A007B7754 /* GameWonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */; };
 		EC93104C1C891F2C00BE736C /* hangman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310451C891F2C00BE736C /* hangman1.gif */; };
 		EC93104D1C891F2C00BE736C /* hangman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310461C891F2C00BE736C /* hangman2.gif */; };
 		EC93104E1C891F2C00BE736C /* hangman3.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310471C891F2C00BE736C /* hangman3.gif */; };
@@ -71,6 +73,8 @@
 		22B903B81DCFB6C7007B7754 /* noose-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noose-01.png"; sourceTree = "<group>"; };
 		22B903B91DCFB6C7007B7754 /* rightArm-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArm-01.png"; sourceTree = "<group>"; };
 		22B903BA1DCFB6C7007B7754 /* rightLeg-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightLeg-01.png"; sourceTree = "<group>"; };
+		22B903C21DCFCF08007B7754 /* GameLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameLostViewController.swift; path = Hangman/GameLostViewController.swift; sourceTree = SOURCE_ROOT; };
+		22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameWonViewController.swift; path = Hangman/GameWonViewController.swift; sourceTree = SOURCE_ROOT; };
 		EC9310451C891F2C00BE736C /* hangman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman1.gif; path = "basic-hangman-img/hangman1.gif"; sourceTree = "<group>"; };
 		EC9310461C891F2C00BE736C /* hangman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman2.gif; path = "basic-hangman-img/hangman2.gif"; sourceTree = "<group>"; };
 		EC9310471C891F2C00BE736C /* hangman3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman3.gif; path = "basic-hangman-img/hangman3.gif"; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 		ECC22F721C8917D300749E58 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */,
+				22B903C21DCFCF08007B7754 /* GameLostViewController.swift */,
 				ECC94FB71C891E31006B4A98 /* StartScreenViewController.swift */,
 				ECC22F701C8917C200749E58 /* GameViewController.swift */,
 			);
@@ -381,9 +387,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC22F711C8917C200749E58 /* GameViewController.swift in Sources */,
+				22B903C51DCFCF1A007B7754 /* GameWonViewController.swift in Sources */,
 				ECC22F431C89177600749E58 /* AppDelegate.swift in Sources */,
 				ECC22F7E1C891CF800749E58 /* HangmanPhrases.swift in Sources */,
 				ECC94FB81C891E31006B4A98 /* StartScreenViewController.swift in Sources */,
+				22B903C31DCFCF08007B7754 /* GameLostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
