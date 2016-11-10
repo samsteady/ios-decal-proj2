@@ -2,18 +2,15 @@
 //  GameViewController.swift
 //  Hangman
 //
-//  Created by Shawn D'Souza on 3/3/16.
-//  Copyright © 2016 Shawn D'Souza. All rights reserved.
+//  Created by Samuel Steady on 10/30/16.
+//  Copyright © 2016 Samuel Steady. All rights reserved.
 //
 
 import UIKit
 
 class GameViewController: UIViewController {
-    var phrase: String = ""
     
-    var triedLetters = [Bool]()
-    
-    
+    /// keyboard UIButton variables used for iterating over
     @IBOutlet weak var Q: UIButton!
     @IBOutlet weak var W: UIButton!
     @IBOutlet weak var E: UIButton!
@@ -40,10 +37,49 @@ class GameViewController: UIViewController {
     @IBOutlet weak var V: UIButton!
     @IBOutlet weak var B: UIButton!
     @IBOutlet weak var N: UIButton!
+
     
+    /// array initialized by viewDidLoad of all keyboard buttons
     var buttons = [UIButton]()
     
+    /// UILabel with user's currently guessed letters
+    /// and "_" where unguessed letters are
+    @IBOutlet weak var guessLabel: UILabel!
     
+    /// phrase used for current Hangman session, initialized by initializeGame().
+    var phrase: String = ""
+    
+    /// array of what letters have been tried as alphabeticly
+    /// increasing array indices from 0 to 25, initialized by initializeGame().
+    var triedLetters = [Bool]()
+    
+    /// array of text displayed in UILabel guessLabel as String character array.
+    var guessLabelText = [String]()
+    
+    /// color of keyboard keys guessed incorrectly
+    let wrongColor = UIColor(red: 206/255, green: 90/255, blue: 55/255, alpha: 1)
+    
+    /// color of keyboard keys guessed correctly
+    let rightColor = UIColor(red: 88/255, green: 163/255, blue: 109/255, alpha: 1)
+    
+    /// color of phrase when all letters guessed correctly.
+    let correctPhraseColor = UIColor(red: 4/255, green: 145/255, blue: 34/255, alpha: 1)
+    
+    /// how many wrong guesses so far
+    var numWrongGuesses = 0
+    
+    
+    /// image view for Hangman graphics
+    @IBOutlet weak var graphicsImageView: UIImageView!
+    
+    /// boolean used to set keyboard to inactive while waiting for
+    /// 1 second delayed "play again" alert prompt
+    var keyboardActive = true
+
+    
+    /// keyboard button actions. Each calls checkLetters
+    /// with appropriate args to check that letter.
+    /// - parameter sender: UIButton corresponding to keyboard button pressed
     @IBAction func pressedQ(_ sender: UIButton) {
         checkLetter(button: sender, index: 0, letter: "Q")
     }
@@ -122,19 +158,15 @@ class GameViewController: UIViewController {
     @IBAction func pressedN(_ sender: UIButton) {
         checkLetter(button: sender, index: 24, letter: "N")
     }
-    @IBOutlet weak var guessLabel: UILabel!
     
-    var guessLabelText = [String]()
     
-    let wrongColor = UIColor(red: 206/255, green: 90/255, blue: 55/255, alpha: 1)
-    let rightColor = UIColor(red: 88/255, green: 163/255, blue: 109/255, alpha: 1)
-    
-    var numWrongGuesses = 0
-    @IBOutlet weak var graphicsImageView: UIImageView!
-    
+    /// checks if letter is in word
+    ///
+    /// - parameter button: keyboard button guessed
+    /// - parameter index:  index of keyboard button in triedLetters array
+    /// - parameter letter: String representation of letter
     func checkLetter(button: UIButton, index: Int, letter: String) {
-        if !triedLetters[index] {
-            print(letter)
+        if keyboardActive && !triedLetters[index] {
             var i = 0
             var correctGuess = false
             for char in phrase.characters {
@@ -152,7 +184,7 @@ class GameViewController: UIViewController {
             if correctGuess {
                 button.backgroundColor = rightColor
                 if gameIsWon() {
-                    self.performSegue(withIdentifier: "wonSegue", sender: nil)
+                    gameWon()
                 }
             } else {
                 button.backgroundColor = wrongColor
@@ -175,7 +207,7 @@ class GameViewController: UIViewController {
                     break
                 case 6:
                     graphicsImageView.image = UIImage(named: "rightLeg-01.png")
-                    self.performSegue(withIdentifier: "lostSegue", sender: nil)
+                    gameLost()
                     break
                 default: break
                     
@@ -185,6 +217,10 @@ class GameViewController: UIViewController {
         }
     }
 
+    
+    /// checks if game is won but not if game is lost.
+    ///
+    /// - returns: boolean true if game is won else false if game is still going
     func gameIsWon() -> Bool {
         var isWon = true
         for str in guessLabelText {
@@ -196,25 +232,61 @@ class GameViewController: UIViewController {
         return isWon
     }
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    /// displays guessLabel with correctly-guessed phase in green.
+    /// delays for one second so user can read word, then prompts to play again.
+    func gameWon() {
+        let attributedString = NSMutableAttributedString(string: phrase)
+        let range = NSRange(location: 0, length: guessLabelText.count)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: range)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: correctPhraseColor, range: range)
+        guessLabel.attributedText! = attributedString
+        let when = DispatchTime.now() + 0.09*Double((String(phrase).characters.count))
+        keyboardActive = true
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            let alertController = UIAlertController(title: "Game Won!", message: "Do You Want to Play Again?", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.initializeGame()
+            }))
+            self.present(alertController, animated: true, completion: nil)
+            self.keyboardActive = true
+        }
+    }
+    
+    
+    /// displays guessLabel with missing letters in red.
+    /// delays for one second so user can read word, then prompts to play again.
+    func gameLost() {
+        let attributedString = NSMutableAttributedString(string: phrase)
+        for i in 0...phrase.characters.count-1 {
+            if guessLabelText[i] == "_" {
+                let range = NSRange(location:i,length:1)
+                attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: range)
+            }
+        }
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: NSRange(location: 0, length: guessLabelText.count))
+        guessLabel.attributedText! = attributedString
+        let when = DispatchTime.now() + 0.09*Double((String(phrase).characters.count))
+        keyboardActive = false
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            let alertController = UIAlertController(title: "Game Lost", message: "Do You Want to Play Again?", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.initializeGame()
+            }))
+            self.present(alertController, animated: true, completion: nil)
+            self.keyboardActive = true
+        }
+    }
+    
+    /// sets up new round of Hangman
+    func initializeGame() {
         numWrongGuesses = 0
-        
-        buttons = [Q, W, E, R, T, Y, U, I, O, P,
-                A, S, D, F, G, H, J, K, L,
-                Z, X, C, V, B, N, M]
-        
         triedLetters = [false,false,false,false,false,false,false,false,false,false,false,
                         false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
         graphicsImageView.image = UIImage(named: "noose-01.png")
-        
         for i in 0...25 {
             buttons[i].backgroundColor = UIColor.darkGray
         }
-
-        // Do any additional setup after loading the view.
         let hangmanPhrases = HangmanPhrases()
         phrase = hangmanPhrases.getRandomPhrase()
         guessLabelText = [String]()
@@ -228,15 +300,15 @@ class GameViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: guessLabelText.joined(separator: ""))
         attributedString.addAttribute(NSKernAttributeName, value: CGFloat(10), range: NSRange(location: 0, length: guessLabelText.count))
         guessLabel.attributedText! = attributedString
-        print("this is the phrase")
         print(phrase)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        viewDidLoad()
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        buttons = [Q, W, E, R, T, Y, U, I, O, P,
+                   A, S, D, F, G, H, J, K, L,
+                   Z, X, C, V, B, N, M]
+        initializeGame()
     }
 
     override func didReceiveMemoryWarning() {

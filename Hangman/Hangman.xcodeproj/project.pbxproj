@@ -14,15 +14,6 @@
 		22B903BF1DCFB6C7007B7754 /* noose-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903B81DCFB6C7007B7754 /* noose-01.png */; };
 		22B903C01DCFB6C7007B7754 /* rightArm-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903B91DCFB6C7007B7754 /* rightArm-01.png */; };
 		22B903C11DCFB6C7007B7754 /* rightLeg-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B903BA1DCFB6C7007B7754 /* rightLeg-01.png */; };
-		22B903C31DCFCF08007B7754 /* GameLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B903C21DCFCF08007B7754 /* GameLostViewController.swift */; };
-		22B903C51DCFCF1A007B7754 /* GameWonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */; };
-		EC93104C1C891F2C00BE736C /* hangman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310451C891F2C00BE736C /* hangman1.gif */; };
-		EC93104D1C891F2C00BE736C /* hangman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310461C891F2C00BE736C /* hangman2.gif */; };
-		EC93104E1C891F2C00BE736C /* hangman3.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310471C891F2C00BE736C /* hangman3.gif */; };
-		EC93104F1C891F2C00BE736C /* hangman4.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310481C891F2C00BE736C /* hangman4.gif */; };
-		EC9310501C891F2C00BE736C /* hangman5.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC9310491C891F2C00BE736C /* hangman5.gif */; };
-		EC9310511C891F2C00BE736C /* hangman6.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC93104A1C891F2C00BE736C /* hangman6.gif */; };
-		EC9310521C891F2C00BE736C /* hangman7.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC93104B1C891F2C00BE736C /* hangman7.gif */; };
 		ECC22F431C89177600749E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC22F421C89177600749E58 /* AppDelegate.swift */; };
 		ECC22F481C89177600749E58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC22F461C89177600749E58 /* Main.storyboard */; };
 		ECC22F4A1C89177600749E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC22F491C89177600749E58 /* Assets.xcassets */; };
@@ -73,15 +64,6 @@
 		22B903B81DCFB6C7007B7754 /* noose-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noose-01.png"; sourceTree = "<group>"; };
 		22B903B91DCFB6C7007B7754 /* rightArm-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArm-01.png"; sourceTree = "<group>"; };
 		22B903BA1DCFB6C7007B7754 /* rightLeg-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightLeg-01.png"; sourceTree = "<group>"; };
-		22B903C21DCFCF08007B7754 /* GameLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameLostViewController.swift; path = Hangman/GameLostViewController.swift; sourceTree = SOURCE_ROOT; };
-		22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameWonViewController.swift; path = Hangman/GameWonViewController.swift; sourceTree = SOURCE_ROOT; };
-		EC9310451C891F2C00BE736C /* hangman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman1.gif; path = "basic-hangman-img/hangman1.gif"; sourceTree = "<group>"; };
-		EC9310461C891F2C00BE736C /* hangman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman2.gif; path = "basic-hangman-img/hangman2.gif"; sourceTree = "<group>"; };
-		EC9310471C891F2C00BE736C /* hangman3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman3.gif; path = "basic-hangman-img/hangman3.gif"; sourceTree = "<group>"; };
-		EC9310481C891F2C00BE736C /* hangman4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman4.gif; path = "basic-hangman-img/hangman4.gif"; sourceTree = "<group>"; };
-		EC9310491C891F2C00BE736C /* hangman5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman5.gif; path = "basic-hangman-img/hangman5.gif"; sourceTree = "<group>"; };
-		EC93104A1C891F2C00BE736C /* hangman6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman6.gif; path = "basic-hangman-img/hangman6.gif"; sourceTree = "<group>"; };
-		EC93104B1C891F2C00BE736C /* hangman7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hangman7.gif; path = "basic-hangman-img/hangman7.gif"; sourceTree = "<group>"; };
 		ECC22F3F1C89177600749E58 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC22F421C89177600749E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC22F471C89177600749E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,20 +121,6 @@
 			path = hangmanImages;
 			sourceTree = "<group>";
 		};
-		EC9310531C891F3400BE736C /* basic-hangman-img */ = {
-			isa = PBXGroup;
-			children = (
-				EC9310451C891F2C00BE736C /* hangman1.gif */,
-				EC9310461C891F2C00BE736C /* hangman2.gif */,
-				EC9310471C891F2C00BE736C /* hangman3.gif */,
-				EC9310481C891F2C00BE736C /* hangman4.gif */,
-				EC9310491C891F2C00BE736C /* hangman5.gif */,
-				EC93104A1C891F2C00BE736C /* hangman6.gif */,
-				EC93104B1C891F2C00BE736C /* hangman7.gif */,
-			);
-			name = "basic-hangman-img";
-			sourceTree = "<group>";
-		};
 		ECC22F361C89177600749E58 = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +176,6 @@
 		ECC22F721C8917D300749E58 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22B903C41DCFCF1A007B7754 /* GameWonViewController.swift */,
-				22B903C21DCFCF08007B7754 /* GameLostViewController.swift */,
 				ECC94FB71C891E31006B4A98 /* StartScreenViewController.swift */,
 				ECC22F701C8917C200749E58 /* GameViewController.swift */,
 			);
@@ -221,7 +187,6 @@
 			children = (
 				ECC22F461C89177600749E58 /* Main.storyboard */,
 				22B903B31DCFB6C7007B7754 /* hangmanImages */,
-				EC9310531C891F3400BE736C /* basic-hangman-img */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -346,22 +311,15 @@
 			files = (
 				ECC22F7C1C891A6700749E58 /* phrases.plist in Resources */,
 				22B903BF1DCFB6C7007B7754 /* noose-01.png in Resources */,
-				EC93104E1C891F2C00BE736C /* hangman3.gif in Resources */,
 				ECC22F4D1C89177600749E58 /* LaunchScreen.storyboard in Resources */,
-				EC93104D1C891F2C00BE736C /* hangman2.gif in Resources */,
-				EC9310511C891F2C00BE736C /* hangman6.gif in Resources */,
 				ECC22F4A1C89177600749E58 /* Assets.xcassets in Resources */,
-				EC9310521C891F2C00BE736C /* hangman7.gif in Resources */,
 				ECC22F481C89177600749E58 /* Main.storyboard in Resources */,
 				22B903BD1DCFB6C7007B7754 /* leftArm-01.png in Resources */,
 				22B903C11DCFB6C7007B7754 /* rightLeg-01.png in Resources */,
 				22B903C01DCFB6C7007B7754 /* rightArm-01.png in Resources */,
-				EC93104F1C891F2C00BE736C /* hangman4.gif in Resources */,
 				22B903BE1DCFB6C7007B7754 /* leftLeg-01.png in Resources */,
-				EC93104C1C891F2C00BE736C /* hangman1.gif in Resources */,
 				22B903BB1DCFB6C7007B7754 /* body-01.png in Resources */,
 				22B903BC1DCFB6C7007B7754 /* head-01.png in Resources */,
-				EC9310501C891F2C00BE736C /* hangman5.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,11 +345,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC22F711C8917C200749E58 /* GameViewController.swift in Sources */,
-				22B903C51DCFCF1A007B7754 /* GameWonViewController.swift in Sources */,
 				ECC22F431C89177600749E58 /* AppDelegate.swift in Sources */,
 				ECC22F7E1C891CF800749E58 /* HangmanPhrases.swift in Sources */,
 				ECC94FB81C891E31006B4A98 /* StartScreenViewController.swift in Sources */,
-				22B903C31DCFCF08007B7754 /* GameLostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
