@@ -9,6 +9,8 @@
 import UIKit
 
 class GameLostViewController: UIViewController {
+    let phrase = ""
+    let guess = ""
 
     @IBAction func playAgain(_ sender: AnyObject) {
         _ = navigationController?.popViewController(animated: true)
@@ -24,6 +26,10 @@ class GameLostViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
 
